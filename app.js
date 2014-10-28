@@ -86,6 +86,7 @@ app.get("/", function(req, res){
 	res.render("index.ejs");
 });
 
+
 //In the post route for user authentication form, we use Passport:
 app.post("/", passport.authenticate("local", {
     successRedirect: "/selection",
@@ -111,7 +112,7 @@ app.get("/", function(req, res){
         } 
     }); 
 
-
+app.listen(process.env.PORT || 3000);
 
 
 
