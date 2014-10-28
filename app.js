@@ -12,7 +12,7 @@ var express = require('express'),
     localStrategy = require("passport-local").Strategy,
     flash = require('connect-flash');
 
-    
+
 //set up passport to use appropriate middleware
 app.use(session( {
   secret: 'thisismysecretkey',
@@ -64,3 +64,78 @@ app.use(express.static(__dirname + '/public'));
 //enable the flash messages api 
 //exposed to us by require('connect-flash')
 app.use(flash());
+
+//signup form route
+app.get("/", function(req, res) {
+	res.render("index.ejs");
+});
+
+//signup new user route
+app.post("/", function(req, res){
+	models.User.createNewUser({ 
+		firstname:req.body.firstname,
+		lastname:req.body.lastname,
+		username:req.body.username,
+		password:req.body.password,
+		email:req.body.email
+	});
+});
+
+//Login form routes, when a user already has a username and password
+app.get("/", function(req, res){
+	res.render("index.ejs");
+});
+
+//In the post route for user authentication form, we use Passport:
+app.post("/", passport.authenticate("local", {
+    successRedirect: "/selection",
+    failureRedirect: "/"
+}));
+
+//home route, when successfully logged in, it will route them to selection page
+app.get("/", function(req, res){
+  console.log(req.isAuthenticated());
+  if (req.isAuthenticated()) { 
+      models.User.findAll().then(function(users) { 
+        res.render("selection.ejs", {
+          isAuthenticated: req.isAuthenticated(), 
+          userInfo: req.user,
+          users: users, 
+          messages: req.flash('info')
+          })
+      }) 
+  } else { 
+    res.redirect("/", {
+      isAuthenticated: false
+    }); 
+        } 
+    }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
