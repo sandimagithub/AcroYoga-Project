@@ -71,7 +71,7 @@ app.get("/", function(req, res) {
 });
 
 //signup new user route
-app.post("/", function(req, res){
+app.post("/newuser", function(req, res){
 	models.User.createNewUser({ 
 		firstname:req.body.firstname,
 		lastname:req.body.lastname,
@@ -86,15 +86,18 @@ app.get("/", function(req, res){
 	res.render("index.ejs");
 });
 
+app.get("/selection", function(req, res){
+  res.render("selection.ejs");
+});
 
 //In the post route for user authentication form, we use Passport:
-app.post("/", passport.authenticate("local", {
+app.post("/login", passport.authenticate("local", {
     successRedirect: "/selection",
-    failureRedirect: "/"
+    failureRedirect: "/index"
 }));
 
 //home route, when successfully logged in, it will route them to selection page
-app.get("/", function(req, res){
+app.get("/index.ejs", function(req, res){
   console.log(req.isAuthenticated());
   if (req.isAuthenticated()) { 
       models.User.findAll().then(function(users) { 
@@ -106,7 +109,7 @@ app.get("/", function(req, res){
           })
       }) 
   } else { 
-    res.redirect("/", {
+    res.redirect("/index.ejs", {
       isAuthenticated: false
     }); 
         } 
