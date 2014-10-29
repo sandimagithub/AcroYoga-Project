@@ -1,0 +1,214 @@
+<% layout ('layout') %>
+<!-- NAVBAR
+================================================== -->
+  <body>
+
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Fly Me Now!</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                  <li><a href="#" role="button" data-toggle="modal" data-target="#add-video">Upload A Video</a></li>
+                 <li><a href="#">Log Out</a></li>
+                                 
+  
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+          <!-- START THE FEATURETTES -->
+<div class="container" >
+      <hr class="featurette-divider">
+
+      <div class="row featurette" style="margin-top: 50px;">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Level One <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">In this section, it should include a list of the links, the name of the poses and any related poses. When the user clicks on that link, it can be featured in this page below in a smaller window or it can be expanded into a larger window.</p>
+
+          <div class="row"> 
+            <table>
+              <thead style="font-size: 15px, bold";>
+                <th class="col-md-4">Name of Pose</th>
+                <th class="col-md-4">Link</th>
+                <th class="col-md-4">Transition Poses (if any) </th>
+              </thead>
+
+              <tbody>
+               <!--  <tr>
+                  <td class="col-md-4">Name of Pose</td>
+                  <td class="col-md-4">Link</td>
+                  <td class="col-md-4">Transition Poses </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>      
+         
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="images/angel_superman.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="images/trio_pix_bjj.jpg" alt="Generic placeholder image">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Level Two <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <div class="row"> 
+            <table>
+              <thead style="font-size: 15px, bold";>
+                <th class="col-md-4">Name of Pose</th>
+                <th class="col-md-4">Link</th>
+                <th class="col-md-4">Transition Poses (if any) </th>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="col-md-4">Name of Pose</td>
+                  <td class="col-md-4">Link</td>
+                  <td class="col-md-4">Transition Poses </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Level Three <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <div class="row"> 
+            <table>
+              <thead style="font-size: 15px, bold";>
+                <th class="col-md-4">Name of Pose</th>
+                <th class="col-md-4">Link</th>
+                <th class="col-md-4">Transition Poses (if any) </th>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="col-md-4">Name of Pose</td>
+                  <td class="col-md-4">Link</td>
+                  <td class="col-md-4">Transition Poses </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="images/handtohand.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+      <!-- Modal Add Video -->
+
+<div class="modal fade" id="add-video">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload a New Video</h4>
+      </div>
+     
+        <div class="modal-body">
+          <h4>Name of Acro Yoga Position</h4>
+          <div class="margin-top-20">
+            <input name="acroname" 
+              id="acroname" 
+              type="text"
+              class="form-control"
+              placeholder="Name of Acro Yoga Position " 
+          </div>
+          <h4 class="margin-top-20">What is the Level of this Pose?</h4>
+          <div class="margin-top-20">
+            <input name="level"
+              type="text"
+              id="youtube"  
+              class="form-control"
+              placeholder="1 or 2 or 3 or 4 or 5"/>
+          </div>
+          <h4 class="margin-top-20">YouTube Video Link</h4>
+          <div class="margin-top-20">
+            <input name="youtube"
+              type="url"
+              id="youtube"  
+              class="form-control"
+              placeholder="https://youtube link...." />
+          </div>
+          <h4 class="margin-top-20">Transition Poses for this flow (if any)</h4>
+          <div class="margin-top-20">
+            <input name="keywords"
+              type="text"
+              id="keywords" 
+              class="form-control"
+              placeholder="Ex: Bird, Plank, Star, Shoulder Stand"  />
+          </div>
+           <h4 class="margin-top-20">Participants Involved</h4>
+          <div class="margin-top-20">
+            <input 
+              name="participants"
+              type="text"
+              id="participants" 
+              class="form-control"
+              placeholder="Acro-Yogi's Names" />
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-video" type="submit" class="btn btn-primary">Save</button>
+        </div>
+   
+    </div>
+  </div>
+</div>
+
+<!--/Modal for Add Video-->
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014, I WANT TO BE 5 AGAIN, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
