@@ -1,7 +1,7 @@
 <% layout ('layout') %>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+
 
     <div class="navbar-wrapper">
       <div class="container">
@@ -20,9 +20,22 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Levels <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Level 1</a></li>
+                    <li><a href="#">Level 2</a></li>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Therapeutic Acro</a></li>                   <!--  <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li> -->
+                  </ul>
+                </li>
+                
                   <li><a href="#" role="button" data-toggle="modal" data-target="#add-video">Upload A Video</a></li>
+                  <li><a href="#contact">Contact</a></li>
                  <li><a href="#">Log Out</a></li>
                                  
   
@@ -41,7 +54,7 @@
 
       <div class="row featurette" style="margin-top: 50px;">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Level One <span class="text-muted">It'll blow your mind.</span></h2>
+          <h2 class="featurette-heading"> <a href="/selection/level/1">Level One</a> <span class="text-muted">It'll blow your mind.</span></h2>
           <p class="lead">In this section, it should include a list of the links, the name of the poses and any related poses. When the user clicks on that link, it can be featured in this page below in a smaller window or it can be expanded into a larger window.</p>
 
           <div class="row"> 
@@ -72,10 +85,10 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="./images/downwarddog3.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="./images/melody_throne.jpg" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Level Two <span class="text-muted">See for yourself.</span></h2>
+          <h2 class="featurette-heading"> <a href="/selection/level/2">Level Two </a><span class="text-muted">See for yourself.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
           <div class="row"> 
             <table>
@@ -101,7 +114,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Level Three <span class="text-muted">Checkmate.</span></h2>
+          <h2 class="featurette-heading"><a href="/selection/level/3">Level Three</a> <span class="text-muted">Checkmate.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
           <div class="row"> 
             <table>
@@ -131,10 +144,10 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="./images/melody_throne.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="./images/downwarddog3.jpg" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Level Two <span class="text-muted">See for yourself.</span></h2>
+          <h2 class="featurette-heading"><a href="/selection/level/0">Therapeutic Acro Yoga </a><span class="text-muted">See for yourself.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
           <div class="row"> 
             <table>
@@ -232,10 +245,3 @@
     </div><!-- /.container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>

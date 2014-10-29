@@ -90,6 +90,24 @@ app.get("/selection", function(req, res){
   res.render("selection.ejs");
 });
 
+//routes to the different levels to show associated videos
+app.get("/selection/level/:level", function(req,res){
+  var levelSelected = parseInt(req.params.level, 10);
+
+  if (levelSelected === 1) {
+   res.render("level_one.ejs");
+  } else if (levelSelected === 2) {
+    res.render("level_two.ejs");
+  } else if (levelSelected === 3) {
+    res.render("level_three.ejs");
+  } else if (levelSelected === 0) {
+    res.render("therapeutic.ejs");
+  
+  }
+});
+
+
+
 //In the post route for user authentication form, we use Passport:
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/selection",
@@ -97,7 +115,7 @@ app.post("/login", passport.authenticate("local", {
 }));
 
 //home route, when successfully logged in, it will route them to selection page
-app.get("/index.ejs", function(req, res){
+app.get("/selection", function(req, res){
   console.log(req.isAuthenticated());
   if (req.isAuthenticated()) { 
       models.User.findAll().then(function(users) { 
@@ -109,11 +127,74 @@ app.get("/index.ejs", function(req, res){
           })
       }) 
   } else { 
-    res.redirect("/index.ejs", {
+    res.redirect("/", {
       isAuthenticated: false
     }); 
         } 
     }); 
+
+//this is the route to get all the videos associated with that level
+app.get("/selection/:id/videos", function(req, res) {
+    var selectionId = parseInt(req.params.id, 10);
+    models.video.findAll(
+    { where: { user_id: selectionId } }
+  ).then(function(video) {
+    res.render('videos', { 
+      video: video,
+      selectionId: selectionId,
+      messages: req.flash('info') //when there is an error, we want to render it to the page
+       });
+  });
+});
+
+// //this is the route to post new videos into DB
+// app.post("/videos", function(req, res) {
+//   models.Video.create({
+//     level: req.body.level,
+//     url: req.body.url,
+//     words: req.body.words
+//     posname:req.posname
+//      // a post request is being sent to this route, the handler is invoked
+//   }).then(function(manager) { 
+//     res.redirect('/managers'); 
+//   }, function(error){ // this is the failure call back function
+//     req.flash('info', error); //this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
+//     res.redirect('/managers'); // we tell express to send a redirect message back to the browser 
+
+//   });
+// });
+
+// //this is the route to post new tenants to the DB associated with that manager
+
+// app.post("/managers/:id/tenants", function(req,res){
+//   var managerId = parseInt(req.params.id, 10), //you want to tell parseInt what base you are in.  In this case, we are in the base 10 of that number
+//     path = ["/managers/", managerId, "/tenants"].join(''), //now use the join function to join the strings together
+//     tenant =  models.Tenant.build({
+//           firstname: req.body.firstname,
+//           lastname: req.body.lastname
+//           });
+  
+//   //Promise libraries allow you to write cleaner code if you have a lot of nested functions
+
+//   models.Manager
+//     .find(managerId) //find the manager with managerId, the result of .find accesses a promise in sequelize
+//     .then(function(manager){
+//       manager.addTenant(tenant) //then add tenant to found manager
+//       .catch(function(error) { // catch any errors and set the flash message
+//           req.flash('info', error);//this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
+//             })
+//           .finally(function() { //finally redirect to the path
+//             res.redirect(path);
+//              });
+//         });
+
+//     });
+
+
+
+
+
+
 
 app.listen(process.env.PORT || 3000);
 
