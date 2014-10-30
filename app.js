@@ -93,19 +93,33 @@ app.post("/newuser", function(req, res){
 // });
 
 //routes to the different levels to show associated videos
-app.get("/selection/level/:level", function(req,res){
+app.get("/selection/level/:level", function(req,res){ //this is our DB pull to get all from the Video model
   var levelSelected = parseInt(req.params.level, 10);
 
-  if (levelSelected === 1) {
-   res.render("level_one.ejs");
-  } else if (levelSelected === 2) {
-    res.render("level_two.ejs");
-  } else if (levelSelected === 3) {
-    res.render("level_three.ejs");
-  } else if (levelSelected === 0) {
-    res.render("therapeutic.ejs");
-  
-  }
+  models.Video.findAll({
+    where: { 
+        level: req.params.level
+    }
+  }).then(function(videos) {//whatever is passed down all from the findAll in DB is an array of video objects 
+  //we need to use the template to put the array of video objects here
+    if (levelSelected === 1) {
+     res.render("level_one.ejs", {
+      allVideos:videos // this will put appropriate videos per selected level
+     });
+    } else if (levelSelected === 2) {
+      res.render("level_two.ejs", {
+      allVideos:videos
+     });
+    } else if (levelSelected === 3) {
+      res.render("level_three.ejs", {
+      allVideos:videos
+     });
+    } else if (levelSelected === 0) {
+      res.render("therapeutic.ejs", {
+      allVideos:videos
+     });
+    }
+  });
 });
 
 //In the post route for user authentication form, we use Passport:
