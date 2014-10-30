@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
   }, function(username, password, passFinished) {
     User.find({
       where: {
-        username: username
+        user_name: username
       }
     }).done(function (error, user) {
       if (user) {

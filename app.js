@@ -88,9 +88,9 @@ app.post("/newuser", function(req, res){
 // 	res.render("index.ejs");
 // });
 
-app.get("/selection", function(req, res){
-  res.render("selection.ejs");
-});
+// app.get("/selection", function(req, res){
+//   res.render("selection.ejs");
+// });
 
 //routes to the different levels to show associated videos
 app.get("/selection/level/:level", function(req,res){

@@ -35,7 +35,7 @@
                 </li>
                 
                   <li><a href="#" role="button" data-toggle="modal" data-target="#add-video">Upload A Video</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#contactus">Contact</a></li>
                  <li><a href="/logout">Log Out</a></li>
                                  
   
@@ -80,6 +80,60 @@
     </div>
    <!--  end of container -->
 
+   <!-- making a table to show the results of the videos for this level -->
+<div class="container">
+  <h1>Therapeutic Poses</h1>
+  <hr />
+
+  <div class="margin-top-20">
+    <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add-video">Upload a Video</a>
+  </div>
+  <table class="table table-striped margin-top-20">
+    <thead>
+      <th>Name of Pose</th>
+      <th>URL Link</th>
+      <th>Transition Poses</th>
+    
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+       
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- end of container for the video results  -->
+
+<!-- Modal  FOR Contact Us-->
+
+<div class="modal fade" id="contactus">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">How to Contact Us</h4>
+      </div>
+
+      <div class="modal-body">
+
+         <h4 class="margin-top-20">If you are feeling adventurous, join us at the grass area underneath the Bow and Arrow overlooking the Bay Bridge, along the Embarcadero!  We promise not to bite!</h4>
+      
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- end modal for Contact Us -->
    <!-- Modal Add Video -->
 
 <div class="modal fade" id="add-video">
@@ -134,6 +188,7 @@
 </div>
 
 <!--/Modal for Add Video-->
+
 
     <!-- FOOTER -->
       <footer>
