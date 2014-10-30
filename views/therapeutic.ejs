@@ -19,7 +19,7 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Levels <span class="caret"></span></a>
@@ -47,7 +47,6 @@
       </div>
     </div>
 
-  <!-- beginning of container -->
     <!-- beginning of container -->
     <div class="container" >
       <hr class="featurette-divider">
@@ -79,6 +78,62 @@
         </div>
       </div>
     </div>
+   <!--  end of container -->
+
+   <!-- Modal Add Video -->
+
+<div class="modal fade" id="add-video">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload a New Video</h4>
+      </div>
+     <form method="post" action="/selection">
+        <div class="modal-body">
+          <h4>Name of Acro Yoga Position</h4>
+          <div class="margin-top-20">
+            <input name="posname" 
+              id="acroname" 
+              type="text"
+              class="form-control"
+              placeholder="Name of Acro Yoga Position " 
+          </div>
+          <h4 class="margin-top-20">What is the Level of this Pose?</h4>
+          <div class="margin-top-20">
+            <input name="level"
+              type="text"
+              id="youtube"  
+              class="form-control"
+              placeholder="1 or 2 or 3 or 4 or 5"/>
+          </div>
+          <h4 class="margin-top-20">YouTube Video Link</h4>
+          <div class="margin-top-20">
+            <input name="url"
+              type="url"
+              id="youtube"  
+              class="form-control"
+              placeholder="https://youtube link...." />
+          </div>
+          <h4 class="margin-top-20">Transition Poses for this flow (if any)</h4>
+          <div class="margin-top-20">
+            <input name="words"
+              type="text"
+              id="keywords" 
+              class="form-control"
+              placeholder="Ex: Bird, Plank, Star, Shoulder Stand"  />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-video" type="submit" class="btn btn-primary">Save</button>
+        </div>
+   
+    </div>
+  </div>
+</div>
+
+<!--/Modal for Add Video-->
 
     <!-- FOOTER -->
       <footer>

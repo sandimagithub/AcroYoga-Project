@@ -4,7 +4,7 @@ var express = require('express'),
     methodOverride = require("method-override"),
     bcrypt = require("bcrypt"),//encryption module using the blowfish a
     app = express(), //fires up new instance of express
-    // models = require('./models/index'),
+    models = require('./models/index'),
     // ejs-locals, for layouts
     engine = require('ejs-locals'),
     session = require('cookie-session'), 
@@ -72,11 +72,11 @@ app.get("/", function(req, res) {
 
 //signup new user route
 app.post("/newuser", function(req, res){
-	models.User.createNewUser({ 
-		firstname:req.body.firstname,
-		lastname:req.body.lastname,
-		username:req.body.username,
-		password:req.body.password,
+	models.User.createNewUser({ //left hand is the model, right hand is the information passed from body 
+		first_name:req.body.firstname,
+		last_name:req.body.lastname,
+		user_name:req.body.newusername,
+		password:req.body.newpassword,
 		email:req.body.email
 	});
 });
@@ -134,13 +134,13 @@ app.get("/selection", function(req, res){
     }); 
 
 //this is the route to get all the videos associated with that level
-app.get("/selection/:id/videos", function(req, res) {
+app.get("/selection/level/:level", function(req,res){
     var selectionId = parseInt(req.params.id, 10);
-    models.video.findAll(
-    { where: { user_id: selectionId } }
-  ).then(function(video) {
-    res.render('videos', { 
-      video: video,
+    models.Video.findAll(
+    { where: { level: selectionId } }
+  ).then(function(levels) {
+    res.render('/selection/level/:id', { 
+      video: levels,
       selectionId: selectionId,
       messages: req.flash('info') //when there is an error, we want to render it to the page
        });
@@ -154,22 +154,22 @@ app.get("/logout", function(req, res){
   res.redirect("/");
 });
 
-// //this is the route to post new videos into DB
-// app.post("/videos", function(req, res) {
-//   models.Video.create({
-//     level: req.body.level,
-//     url: req.body.url,
-//     words: req.body.words
-//     posname:req.posname
-//      // a post request is being sent to this route, the handler is invoked
-//   }).then(function(manager) { 
-//     res.redirect('/managers'); 
-//   }, function(error){ // this is the failure call back function
-//     req.flash('info', error); //this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
-//     res.redirect('/managers'); // we tell express to send a redirect message back to the browser 
+//this is the route to post new videos (levels) into DB
+app.post("/selection", function(req, res) {
+  models.Video.create({
+    level: req.body.level,
+    url: req.body.url,
+    words: req.body.words,
+    pos_name:req.body.posname
+     // a post request is being sent to this route, the handler is invoked
+  }).then(function(level) { 
+    res.redirect('/'); 
+  }, function(error){ // this is the failure call back function
+    req.flash('info', error); //this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
+    res.redirect('/'); // we tell express to send a redirect message back to the browser 
 
-//   });
-// });
+  });
+});
 
 // //this is the route to post new tenants to the DB associated with that manager
 

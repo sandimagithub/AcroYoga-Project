@@ -11,9 +11,19 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-      }
-    }
-  });
+      },  postNewVideo: function(videoInfo) {//passing in the object with our new video information--referring to the object and key, related to the name in the DB
+          Video.create({
+            level:videoInfo.level,
+            url:videoInfo.url,
+            pos_name:videoInfo.posname,
+            words:videoInfo.words,
+            userid:videoInfo.userid
+            
+          });
+      }  
+      }    
+    });
 
   return Video;
+  
 };
