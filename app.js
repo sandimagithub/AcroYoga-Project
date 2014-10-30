@@ -73,18 +73,20 @@ app.get("/", function(req, res) {
 //signup new user route
 app.post("/newuser", function(req, res){
 	models.User.createNewUser({ //left hand is the model, right hand is the information passed from body 
-		first_name:req.body.firstname,
-		last_name:req.body.lastname,
-		user_name:req.body.newusername,
-		password:req.body.newpassword,
-		email:req.body.email
+		firstname:req.body.firstname,
+		lastname:req.body.lastname,
+		username:req.body.username,
+    emailaddress:req.body.emailaddress,
+    password:req.body.password
+		
 	});
+  res.redirect("/selection")
 });
 
 //Login form routes, when a user already has a username and password
-app.get("/", function(req, res){
-	res.render("index.ejs");
-});
+// app.get("/", function(req, res){
+// 	res.render("index.ejs");
+// });
 
 app.get("/selection", function(req, res){
   res.render("selection.ejs");
@@ -106,12 +108,10 @@ app.get("/selection/level/:level", function(req,res){
   }
 });
 
-
-
 //In the post route for user authentication form, we use Passport:
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/selection",
-    failureRedirect: "/index"
+    failureRedirect: "/"
 }));
 
 //home route, when successfully logged in, it will route them to selection page

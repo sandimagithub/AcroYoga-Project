@@ -34,7 +34,8 @@ module.exports = function(sequelize, DataTypes) {
           User.create({
             first_name:userInfo.firstname,
             last_name:userInfo.lastname, 
-            username:userInfo.username,
+            user_name:userInfo.username,
+            email:userInfo.emailaddress,
             password:User.hashPass(userInfo.password)
           });
     }
