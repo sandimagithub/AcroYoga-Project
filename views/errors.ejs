@@ -1,0 +1,9 @@
+<% if (messages.length) { %>
+    <div class="alert alert-danger margin-top-20" role="alert">
+         <%  messages.forEach(function(message) { %>
+          <%  message.errors.forEach(function(error) { %>
+           <div> <%= error.message %> </div>
+           <%  }); %>
+        <%  }); %>
+        </div>
+      <% } %>

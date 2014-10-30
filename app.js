@@ -147,6 +147,13 @@ app.get("/selection/:id/videos", function(req, res) {
   });
 });
 
+//logout route
+app.get("/logout", function(req, res){
+  //calling the logout function from passport appended in the req object 
+  req.logout(); // destroys the session for us when we log out
+  res.redirect("/");
+});
+
 // //this is the route to post new videos into DB
 // app.post("/videos", function(req, res) {
 //   models.Video.create({
