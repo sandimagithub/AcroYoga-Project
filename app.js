@@ -177,44 +177,13 @@ app.post("/selection", function(req, res) {
     pos_name:req.body.posname
      // a post request is being sent to this route, the handler is invoked
   }).then(function(level) { 
-    res.redirect('/'); 
+    res.redirect('/selection'); 
   }, function(error){ // this is the failure call back function
     req.flash('info', error); //this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
     res.redirect('/'); // we tell express to send a redirect message back to the browser 
 
   });
 });
-
-// //this is the route to post new tenants to the DB associated with that manager
-
-// app.post("/managers/:id/tenants", function(req,res){
-//   var managerId = parseInt(req.params.id, 10), //you want to tell parseInt what base you are in.  In this case, we are in the base 10 of that number
-//     path = ["/managers/", managerId, "/tenants"].join(''), //now use the join function to join the strings together
-//     tenant =  models.Tenant.build({
-//           firstname: req.body.firstname,
-//           lastname: req.body.lastname
-//           });
-  
-//   //Promise libraries allow you to write cleaner code if you have a lot of nested functions
-
-//   models.Manager
-//     .find(managerId) //find the manager with managerId, the result of .find accesses a promise in sequelize
-//     .then(function(manager){
-//       manager.addTenant(tenant) //then add tenant to found manager
-//       .catch(function(error) { // catch any errors and set the flash message
-//           req.flash('info', error);//this tells the session to remember the error, under the key 'info' (this sets the error object in the flash)
-//             })
-//           .finally(function() { //finally redirect to the path
-//             res.redirect(path);
-//              });
-//         });
-
-//     });
-
-
-
-
-
 
 
 app.listen(process.env.PORT || 3000);
