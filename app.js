@@ -80,7 +80,7 @@ app.post("/newuser", function(req, res){
     password:req.body.password
 		
 	});
-  res.redirect("/selection")
+  res.redirect("/")
 });
 
 //Login form routes, when a user already has a username and password
@@ -141,9 +141,7 @@ app.get("/selection", function(req, res){
           })
       }) 
   } else { 
-    res.redirect("/", {
-      isAuthenticated: false
-    }); 
+    res.redirect("/"); 
         } 
     }); 
 
